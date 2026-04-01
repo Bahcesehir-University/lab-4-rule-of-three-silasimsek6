@@ -120,7 +120,9 @@ public:
         //   1. Increment g_assignmentCount
         g_assignmentCount++;
         //   2. Check for self-assignment (if this == &other)
-         if (this == &other) return *this; 
+         if (this == &other) {
+         return *this; 
+         }
         //   3. Delete old m_data (delete[])
         delete[] m_data;
         //   4. Copy m_length from other
@@ -150,11 +152,11 @@ public:
         //   1. Delete old m_data (delete[])
         delete[] m_data;
         //   2. Calculate new length with strlen()
-        strlen(newData);
+        m_length = strlen(newData);
         //   3. Allocate new memory: new char[m_length + 1]
         m_data = new char[m_length + 1];
         //   4. Copy newData into m_data using strcpy()
-        strcpy(m_data , getData());
+        strcpy(m_data , newData );
     }
 
     // --------------------------------------------------
